@@ -1,0 +1,32 @@
+:host { display: block; }
+
+.gl { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 3; pointer-events: none; display: block; }
+/* The 3D code adds "top" while the tear viewer is open, so the canvas can be dragged. */
+.gl.top { z-index: 50; pointer-events: auto; touch-action: none; cursor: grab; }
+.gl.top:active { cursor: grabbing; }
+
+/* How long the tunnel takes to scroll through. Bigger = slower flight. */
+.track { position: relative; height: 640vh; }
+/* The stage sticks to the screen while the track scrolls behind it.
+   "difference" makes the text black over the white studio and inverted over photos. */
+.stage {
+  position: sticky; top: 0; z-index: 4; height: 100vh; height: 100svh; overflow: hidden;
+  pointer-events: none; mix-blend-mode: difference; color: #fff;
+}
+.say { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; padding-inline: 16px; opacity: 0; }
+.say h1, .say h2 { font-size: clamp(52px, 12.5vw, 190px); }
+.say p { font: 500 14px/1.4 var(--mono); margin-top: 18px; }
+
+.hud {
+  position: fixed; z-index: 30; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%);
+  background: var(--ink); color: var(--paper); border-radius: 99px; padding: 8px 16px;
+  white-space: nowrap; max-width: calc(100vw - 32px); overflow: hidden; text-overflow: ellipsis;
+}
+/* The <b> inside the pill is written by the 3D code, so it needs ::ng-deep to be styled from here. */
+.hud ::ng-deep b { color: var(--gold); font-weight: 500; }
+
+/* Fallback when the browser has no 3D: a normal, short hero with the first headline. */
+:host(.no-webgl) .track { height: auto; }
+:host(.no-webgl) .stage { position: relative; mix-blend-mode: normal; color: var(--ink); }
+:host(.no-webgl) .say:first-child { opacity: 1; }
+:host(.no-webgl) .hud, :host(.no-webgl) .gl { display: none; }

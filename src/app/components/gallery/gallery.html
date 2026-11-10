@@ -1,0 +1,25 @@
+<section class="work" id="work">
+  <div class="wrap">
+    <h2 appParallax="0.05">Selected work</h2>
+
+    <div class="grid">
+      @for (i of visible(); track i) {
+        <div class="tile">
+          <button class="photo" (click)="open(i)" [attr.aria-label]="'Inspect ' + photos[i].title">
+            <img alt="" [src]="url(i)" loading="lazy">
+            <span class="mono caption">{{ label(i) }} · {{ photos[i].title }}</span>
+          </button>
+        </div>
+      }
+      <!-- Invisible tiles that fill a short last page. -->
+      @for (blank of blanks(); track $index) {
+        <div class="tile blank" aria-hidden="true">
+          <img alt="" [src]="url(0)">
+          <span class="mono caption">&nbsp;</span>
+        </div>
+      }
+    </div>
+
+    <app-pager [page]="page()" [pages]="pages" label="Gallery pages" (pageChange)="page.set($event)" />
+  </div>
+</section>

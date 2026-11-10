@@ -1,0 +1,17 @@
+@if (studio.viewerOpen()) {
+  <div class="ui" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <p class="hint mono">Drag down to tear</p>
+    <button #closeButton class="close" (click)="studio.closeViewer()" aria-label="Close photo viewer">&times;</button>
+    <div class="bar">
+      <div class="caption" aria-live="polite">
+        <h3>{{ photo().title }}</h3>
+        <p class="mono">{{ details() }}</p>
+      </div>
+      <div class="controls">
+        <button class="buy" (click)="studio.buy(photo().title)">Order print</button>
+        <button (click)="studio.tear(-1)" aria-label="Tear to previous photo">&larr;</button>
+        <button (click)="studio.tear(1)" aria-label="Tear to next photo">&rarr;</button>
+      </div>
+    </div>
+  </div>
+}

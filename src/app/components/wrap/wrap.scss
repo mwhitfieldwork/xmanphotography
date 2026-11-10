@@ -1,0 +1,7 @@
+:host { display: block; }
+/* No background here: the white studio (--bg) shows through, the same as the hero. */
+.roll { position: relative; z-index: 2; min-height: 100vh; min-height: 100lvh; padding-block: 16vh 28px; }
+h2 { font-size: clamp(48px, 9vw, 132px); max-width: 8ch; }
+p { max-width: 34ch; margin-top: 18px; color: var(--muted); }
+.btn { margin-top: 22px; }
+@media (max-width: 760px) { .roll { padding-top: 12vh; } }

@@ -1,0 +1,9 @@
+<nav class="pager" [attr.aria-label]="label()">
+  <button [disabled]="page() === 0" (click)="pageChange.emit(page() - 1)" aria-label="Previous page"><span>&larr;</span></button>
+  @for (n of numbers(); track n) {
+    <button [attr.aria-current]="n === page() ? 'page' : null" (click)="pageChange.emit(n)" [attr.aria-label]="'Page ' + (n + 1)">
+      <span>{{ n + 1 }}</span>
+    </button>
+  }
+  <button [disabled]="page() === pages() - 1" (click)="pageChange.emit(page() + 1)" aria-label="Next page"><span>&rarr;</span></button>
+</nav>

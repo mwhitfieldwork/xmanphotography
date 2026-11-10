@@ -1,0 +1,29 @@
+<section class="prints" id="prints">
+  <div class="wrap">
+    <h2 appParallax="0.05">Take one home.</h2>
+    <p class="lede">On the real site, these buttons would call the .NET API, which starts a Stripe Checkout session. Prices are samples.</p>
+
+    <div class="grid">
+      @for (print of visible(); track print.photo) {
+        <article class="tile">
+          <img [alt]="title(print) + ', print'" [src]="url(print)" loading="lazy">
+          <div class="row">
+            <h3>{{ title(print) }}</h3>
+            <span class="tiny">{{ print.price }}</span>
+          </div>
+          <button class="btn" (click)="buy(print)">Add to cart</button>
+        </article>
+      }
+      <!-- Invisible tiles that fill a short last page. -->
+      @for (blank of blanks(); track $index) {
+        <article class="tile blank" aria-hidden="true">
+          <img alt="" [src]="url(prints[0])">
+          <div class="row"><h3>&nbsp;</h3></div>
+          <span class="btn">&nbsp;</span>
+        </article>
+      }
+    </div>
+
+    <app-pager [page]="page()" [pages]="pages" label="Print shop pages" (pageChange)="page.set($event)" />
+  </div>
+</section>

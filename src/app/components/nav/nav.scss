@@ -1,0 +1,16 @@
+.nav {
+  position: fixed; z-index: 40; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  top: calc(14px + env(safe-area-inset-top, 0px));
+  left: max(16px, env(safe-area-inset-left, 0px)); right: max(16px, env(safe-area-inset-right, 0px));
+  pointer-events: none;   /* clicks pass through the empty space between the two pills */
+}
+.nav > * {
+  pointer-events: auto; background: var(--ink); color: var(--paper);
+  border: 1px solid rgba(255, 255, 255, .28);   /* keeps the pills visible over the black sections */
+  border-radius: 99px; padding: 8px 16px;
+}
+.brand { font: 800 18px/1 var(--display); text-decoration: none; }
+nav { display: flex; gap: 16px; font-size: 14px; }
+nav a { text-decoration: none; }
+nav a:hover { color: var(--gold); }
+@media (max-width: 760px) { nav { gap: 12px; } }

@@ -1,0 +1,20 @@
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div class="brandmark">Half Stop</div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          @for (link of site; track link.label) { <li><a [href]="link.href">{{ link.label }}</a></li> }
+        </ul>
+      </div>
+      <div>
+        <h3>Follow</h3>
+        <ul>
+          @for (link of social; track link.label) { <li><a [href]="link.href">{{ link.label }}</a></li> }
+        </ul>
+      </div>
+    </div>
+    <p class="tiny">Demo only. Every image is computer-drawn as a stand-in for real photography. Half Stop is a made-up studio, and the social links are placeholders.</p>
+  </div>
+</footer>

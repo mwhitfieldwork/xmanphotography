@@ -1,0 +1,38 @@
+/* ==========================================================================
+   WHAT: Every color on the site, in one place.
+   WHY:  To recolor a section you change one line here, not the section's file.
+   HOW:  Each line is a CSS variable. Sections read them with var(--name).
+         For example the gallery uses var(--work-bg) and var(--work-text).
+   ========================================================================== */
+:root {
+  /* --- Base colors ------------------------------------------------------ */
+  --bg: #f4f2ee;          /* the white studio: hero and "That's a wrap" section. The 3D haze reads this too. */
+  --ink: #15120f;         /* near-black text, and the dark pills (nav, buttons) */
+  --paper: #fbfaf7;       /* light text on dark pills */
+  --muted: #6b665f;       /* quieter gray text */
+  --accent: #e5432d;      /* button hover, focus ring */
+  --gold: #f2b705;        /* small highlights on dark backgrounds */
+  --viewer-bg: #dcd8d0;   /* the backdrop behind a photo in the tear viewer */
+
+  /* --- Section colors: background + text for each band of the page ------- */
+  --intro-bg: #f4b63a;    /* "I am Xavier": warm golden yellow */
+  --intro-text: #15120f;
+  --intro-soft: #3d2c08;  /* the smaller paragraph text */
+
+  --work-bg: #d4261c;     /* "Selected work": solid red */
+  --work-text: #ffffff;
+
+  --prints-bg: #fbe3cf;   /* "Take one home": warm peach pastel */
+  --prints-text: #3a2418;
+  --prints-soft: #7a5a48;
+
+  --book-bg: #0c0b0a;     /* "Book a shoot": black */
+  --book-text: #ffffff;
+  --book-soft: #a39e96;
+
+  --footer-bg: #0c0b0a;   /* footer: black with gray text */
+  --footer-text: #8d8880;
+  --footer-link: #a39e96;
+  --footer-link-hover: #e0dcd4;
+  --footer-faint: #6b665f;
+}

@@ -1,0 +1,21 @@
+/* The whole layer ignores clicks, except its buttons and caption, so you can still drag the photo. */
+.ui { position: fixed; inset: 0; z-index: 60; pointer-events: none; }
+.ui > * { pointer-events: auto; }
+.close {
+  position: absolute; top: calc(14px + env(safe-area-inset-top, 0px)); right: max(16px, env(safe-area-inset-right, 0px));
+  width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--ink); color: var(--paper); font-size: 22px; line-height: 1; cursor: pointer;
+}
+.bar {
+  position: absolute; left: 0; right: 0; bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  padding-inline: max(16px, env(safe-area-inset-left, 0px));
+  display: flex; justify-content: space-between; align-items: end; gap: 16px; pointer-events: none;
+}
+.bar > * { pointer-events: auto; min-width: 0; }
+.caption h3 { font-size: clamp(20px, 3vw, 32px); }
+.caption p { color: var(--muted); }
+.controls { display: flex; gap: 8px; align-items: center; flex: none; }
+.controls button { height: 44px; min-width: 44px; border-radius: 99px; border: 1.5px solid var(--ink); background: none; cursor: pointer; padding-inline: 14px; }
+.controls button:hover { background: var(--ink); color: var(--paper); }
+.controls .buy { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+.hint { position: absolute; top: calc(26px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); white-space: nowrap; color: var(--muted); pointer-events: none; }
+@media (max-width: 760px) { .controls .buy, .hint { display: none; } }

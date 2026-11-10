@@ -1,0 +1,18 @@
+<app-nav />
+
+<main id="top">
+  <app-hero />        <!-- white studio: 3D photo tunnel -->
+  <app-intro />       <!-- yellow: "I am Xavier. I capture light." -->
+  <app-gallery />     <!-- red: Selected work grid -->
+  <app-print-shop />  <!-- peach: Take one home -->
+  <app-booking />     <!-- black: Book a shoot -->
+  <app-wrap />        <!-- white studio: the film roll lands here -->
+</main>
+
+<app-footer />
+
+<!-- These two float above everything else. -->
+<app-photo-viewer />
+@if (studio.toastMessage()) {
+  <div class="toast" role="status">{{ studio.toastMessage() }}</div>
+}

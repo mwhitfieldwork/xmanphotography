@@ -1,0 +1,29 @@
+:host { display: block; }
+
+.prints {
+  position: relative; z-index: 2; padding-block: 14vh;
+  background: var(--prints-bg); color: var(--prints-text);
+  --section-bg: var(--prints-bg);   /* read by the page buttons */
+}
+h2 { font-size: clamp(44px, 8vw, 116px); }
+.lede { max-width: 52ch; margin-top: 20px; color: var(--prints-soft); }
+
+/* ---- IMAGE LAYOUT: same idea as gallery.scss -------------------------------
+   If you change the number of columns, also change `perPage` in print-shop.ts. */
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 48px; }
+.tile { min-width: 0; }
+.tile.blank { visibility: hidden; }
+img {
+  display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
+  border: 8px solid #fff;
+  box-shadow: 0 2px 3px rgba(40, 10, 5, .18), 0 30px 34px -22px rgba(40, 10, 5, .6);
+}
+.row { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-top: 16px; }
+h3 { font-size: 22px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.btn { margin-top: 12px; background: var(--prints-text); }
+
+@media (max-width: 760px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  img { border-width: 5px; }
+  h3 { font-size: 16px; }
+}

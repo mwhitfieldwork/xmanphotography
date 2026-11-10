@@ -1,0 +1,25 @@
+<section class="book" id="book">
+  <div class="wrap layout">
+    <div>
+      <h2 appParallax="0.04">Book a shoot</h2>
+      <ul class="sessions">
+        @for (session of sessions; track session.name) {
+          <li><span>{{ session.name }}, {{ session.detail }}</span><span>{{ session.price }}</span></li>
+        }
+      </ul>
+      <p class="tiny note">Sample prices for the demo.</p>
+    </div>
+
+    <form (submit)="submit($event)">
+      <label for="fname">Your name<input id="fname" required placeholder="Sam Rivera"></label>
+      <label for="fmail">Email<input id="fmail" type="email" required placeholder="sam@example.com"></label>
+      <label for="fkind">Session
+        <select id="fkind">
+          @for (session of sessions; track session.name) { <option>{{ session.name }}</option> }
+        </select>
+      </label>
+      <button class="btn">Request a date</button>
+      <p class="message" role="status">{{ message() }}</p>
+    </form>
+  </div>
+</section>

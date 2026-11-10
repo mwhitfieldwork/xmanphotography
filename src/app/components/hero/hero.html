@@ -1,0 +1,17 @@
+<!-- The 3D canvas. It is fixed to the screen and floats above the page sections. -->
+<canvas #gl class="gl" aria-hidden="true"></canvas>
+
+<!-- The track is very tall. Scrolling through it is what flies the camera down the tunnel. -->
+<section #track class="track" aria-label="Photo tunnel">
+  <div class="stage">
+    @for (line of headlines; track line.text) {
+      <div #say class="say" [attr.data-a]="line.from" [attr.data-b]="line.to">
+        @if ($first) { <h1>{{ line.text }}</h1> } @else { <h2>{{ line.text }}</h2> }
+        @if (line.note) { <p>{{ line.note }}</p> }
+      </div>
+    }
+  </div>
+</section>
+
+<!-- The info pill. The 3D code writes the current photo name into it. -->
+<div #hud class="hud mono" hidden></div>

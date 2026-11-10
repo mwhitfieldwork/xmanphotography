@@ -1,0 +1,12 @@
+/* The buttons use "currentColor", so they take the text color of whatever section they sit in.
+   --section-bg is set by that section, and is used for the number inside the filled (current) button. */
+:host { display: block; }
+.pager { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 44px; }
+button {
+  min-width: 44px; height: 44px; padding-inline: 14px; border-radius: 99px; border: 1.5px solid currentColor;
+  background: none; cursor: pointer; font-family: var(--mono); font-size: 13px;
+}
+button[aria-current] { background: currentColor; }
+button[aria-current] span { color: var(--section-bg); }
+button:disabled { opacity: .35; cursor: default; }
+button:focus-visible { outline-color: currentColor; }

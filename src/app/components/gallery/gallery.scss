@@ -1,0 +1,36 @@
+:host { display: block; }
+
+.work {
+  position: relative; z-index: 2; padding-block: 14vh;
+  background: var(--work-bg); color: var(--work-text);
+  --section-bg: var(--work-bg);   /* read by the page buttons */
+}
+h2 { font-size: clamp(44px, 8vw, 116px); }
+
+/* ---- IMAGE LAYOUT: change these to rearrange the photos -------------------
+   grid-template-columns: how many columns. repeat(3, ...) = 3 across.
+   gap:                   the space between tiles.
+   aspect-ratio (below):  the shape of every tile. 3/2 is wide, 1/1 is square.
+   If you change the number of columns, also change `perPage` in gallery.ts
+   so each page still fills complete rows. */
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 48px; }
+.tile { min-width: 0; }
+.tile.blank { visibility: hidden; }
+
+.photo { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; text-align: left; color: inherit; }
+.photo:focus-visible { outline-color: currentColor; }
+img {
+  display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover;   /* every photo is cropped to the same shape */
+  border: 8px solid #fff;                                                 /* the white print border */
+  box-shadow: 0 2px 3px rgba(40, 10, 5, .18), 0 30px 34px -22px rgba(40, 10, 5, .6);
+  transition: transform .35s ease;
+}
+.photo:hover img { transform: scale(1.025); }
+.caption { display: block; padding-top: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Phones: 2 columns, tighter spacing, thinner border. */
+@media (max-width: 760px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  img { border-width: 5px; }
+}
+@media (prefers-reduced-motion: reduce) { img { transition: none; } }

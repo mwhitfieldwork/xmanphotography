@@ -1,0 +1,7 @@
+:host { display: block; }
+.intro { position: relative; z-index: 2; background: var(--intro-bg); color: var(--intro-text); padding-block: 18vh 16vh; }
+h2 { font-size: clamp(46px, 8.6vw, 124px); max-width: 11ch; }
+.cols {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 24px 48px;
+  margin-top: 40px; max-width: 900px; color: var(--intro-soft);
+}
